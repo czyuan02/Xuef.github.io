@@ -3,6 +3,7 @@ output_dir: "."
 
 output:
   html_document:
+    # theme: flatly
     highlight: tango
     includes:
       after_body: bgm.html
@@ -12,3 +13,4 @@ navbar:
   left:
     - text: "Birthday"
       href: index.html
+

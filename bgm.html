@@ -42,7 +42,7 @@
 
 <!-- 复用/创建音频元素：不展示音量，仅保留静音 -->
 <audio id="bgm" preload="auto" autoplay muted playsinline style="display:none;">
-  <source src="祝你生日快乐.mp3" type="audio/mpeg">
+  <source src="千千闋歌.mp3" type="audio/mpeg">
 </audio>
 
 <div class="mp-wrap" id="mpWrap" aria-live="polite">
@@ -100,8 +100,8 @@
 
   // 曲目
   const tracks = [
-    { src: '祝你生日快乐.mp3',     title: '祝你生日快乐.mp3' },
-    { src: '千千闋歌.mp3',           title: '千千闋歌.mp3' },
+    { src: '千千闋歌.mp3',     title: '千千闋歌.mp3' },
+    { src: '祝你生日快乐.mp3',           title: '祝你生日快乐.mp3' },
     { src: 'Whispers_of_the Forest.mp3',   title: 'Whispers_of_the Forest.mp3' }
   ];
   sel.innerHTML = tracks.map((tr,i)=>`<option value="${i}">${tr.title}</option>`).join('');
