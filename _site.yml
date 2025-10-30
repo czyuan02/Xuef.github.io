@@ -1,0 +1,14 @@
+name: "Mother Birthday"
+output_dir: "."
+
+output:
+  html_document:
+    highlight: tango
+    includes:
+      after_body: bgm.html
+      
+navbar:
+  title: "🎂 Mom"
+  left:
+    - text: "Birthday"
+      href: index.html

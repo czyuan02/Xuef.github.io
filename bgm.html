@@ -1,0 +1,195 @@
+<style>
+  .mp-wrap{
+    position: fixed; right:16px;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+    z-index: 9999;
+    display:flex; flex-direction:column; align-items:flex-end; gap:8px;
+    font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  }
+  .mp-head{
+    display:flex; align-items:center; gap:8px;
+    background:#fff; border:1px solid var(--border,#e9dfd7);
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
+    color:var(--text,#433);
+    border-radius:999px; padding:8px 12px; cursor:pointer; user-select:none;
+  }
+  .mp-head .label{ font-size:.9rem; color:var(--muted,#7a6f6a); }
+  .mp-panel{
+    background:#fff; border:1px solid var(--border,#e9dfd7); box-shadow:0 6px 18px rgba(0,0,0,.12);
+    border-radius:14px; padding:10px; display:flex; flex-direction:column; gap:8px; width:360px; max-width:92vw;
+    transform-origin: bottom right; transition: transform .18s ease, opacity .18s ease;
+  }
+  .mp-wrap:not(.is-open) .mp-panel{ transform: scale(.92); opacity:0; pointer-events:none; }
+  .mp-row{ display:flex; align-items:center; gap:8px; }
+  .mp-title{
+    font-size:.92rem; color:var(--muted,#7a6f6a);
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex:1;
+  }
+  .mp-btn{
+    border:1px solid var(--border,#e9dfd7); background:#fff; color:inherit;
+    border-radius:10px; padding:6px 10px; cursor:pointer; font-size:14px;
+  }
+  .mp-range{ accent-color:#c58; height:4px; flex:1; }
+  .mp-time{ font-size:.8rem; color:var(--muted,#7a6f6a); min-width:74px; text-align:right; }
+  .mp-sel{
+    border:1px solid var(--border,#e9dfd7); border-radius:10px;
+    padding:6px 8px; background:#fff; font-size:.9rem; color:var(--text,#433);
+  }
+  @media (max-width:520px){
+    .mp-wrap{ right:12px; bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); }
+  }
+</style>
+
+<!-- 复用/创建音频元素：不展示音量，仅保留静音 -->
+<audio id="bgm" preload="auto" autoplay muted playsinline style="display:none;">
+  <source src="祝你生日快乐.mp3" type="audio/mpeg">
+</audio>
+
+<div class="mp-wrap" id="mpWrap" aria-live="polite">
+  <button class="mp-head" id="mpToggle" aria-expanded="false" aria-controls="mpPanel">
+    <span>🎵</span><span class="label">播放器</span>
+  </button>
+
+  <div class="mp-panel" id="mpPanel" role="group" aria-label="背景音乐控制">
+    <div class="mp-row">
+      <button class="mp-btn" id="mpPrev">⏮️</button>
+      <button class="mp-btn" id="mpPlay">▶️</button>
+      <button class="mp-btn" id="mpNext">⏭️</button>
+      <button class="mp-btn" id="mpMute">🔇</button>
+      <div class="mp-title" id="mpTitle">背景音乐</div>
+    </div>
+    <div class="mp-row">
+      <select id="mpSel" class="mp-sel" title="选择曲目"></select>
+      <input id="mpSeek" class="mp-range" type="range" min="0" max="100" value="0">
+      <span class="mp-time" id="mpTime">00:00 / 00:00</span>
+    </div>
+    <!-- 已删除音量行 -->
+  </div>
+</div>
+
+<script>
+(function(){
+  const wrap  = document.getElementById('mpWrap');
+  const toggle= document.getElementById('mpToggle');
+
+  // 折叠记忆
+  const K=(k)=>`bgm.${k}`;
+  const savedOpen = localStorage.getItem(K('open'));
+  const open = savedOpen===null?false:(savedOpen==='true');
+  wrap.classList.toggle('is-open', open);
+  toggle.setAttribute('aria-expanded', String(open));
+  toggle.onclick = ()=>{
+    const now = !wrap.classList.contains('is-open');
+    wrap.classList.toggle('is-open', now);
+    toggle.setAttribute('aria-expanded', String(now));
+    try{ localStorage.setItem(K('open'), String(now)); }catch(e){}
+  };
+
+  // 音频 & 控件
+  const a     = document.getElementById('bgm') || document.querySelector('audio');
+  const bPrev = document.getElementById('mpPrev');
+  const bPlay = document.getElementById('mpPlay');
+  const bNext = document.getElementById('mpNext');
+  const bMute = document.getElementById('mpMute');
+  const t     = document.getElementById('mpTitle');
+  const sel   = document.getElementById('mpSel');
+  const seek  = document.getElementById('mpSeek');
+  const time  = document.getElementById('mpTime');
+  if(!a){ console.warn('未找到 <audio id="bgm">'); return; }
+  a.loop = false;
+
+  // 曲目
+  const tracks = [
+    { src: '祝你生日快乐.mp3',     title: '祝你生日快乐.mp3' },
+    { src: '千千闋歌.mp3',           title: '千千闋歌.mp3' },
+    { src: 'Whispers_of_the Forest.mp3',   title: 'Whispers_of_the Forest.mp3' }
+  ];
+  sel.innerHTML = tracks.map((tr,i)=>`<option value="${i}">${tr.title}</option>`).join('');
+
+  const KIDX = K('index');
+  let idx = Math.min(tracks.length-1, Math.max(0, parseInt(localStorage.getItem(KIDX) || '0', 10)));
+  const savedMuted = localStorage.getItem(K('muted'));
+  if (savedMuted !== null) a.muted = (savedMuted === 'true');
+
+  const fmt = (s)=>{ s=Math.max(0, Math.floor(s)); const m=Math.floor(s/60), ss=s%60; return `${String(m).padStart(2,'0')}:${String(ss).padStart(2,'0')}`; };
+  function syncButtons(){ bPlay.textContent = a.paused ? '▶️' : '⏸️'; bMute.textContent = a.muted ? '🔇' : '🔊'; }
+  function syncTime(){ const cur=a.currentTime||0, dur=isFinite(a.duration)?a.duration:0;
+    time.textContent = `${fmt(cur)} / ${fmt(dur)}`; if(dur>0) seek.value = Math.round(cur/dur*100); }
+  function saveState(){
+    try{
+      localStorage.setItem(K('muted'), String(!!a.muted));
+      localStorage.setItem(KIDX, String(idx));
+      localStorage.setItem(K(`time.${idx}`), String(a.currentTime||0));
+    }catch(e){}
+  }
+  function setTitle(name){
+    try{
+      t.textContent = name || decodeURIComponent(new URL(a.currentSrc||a.src, location.href).pathname.split('/').pop());
+    }catch(e){ t.textContent = name || '背景音乐'; }
+  }
+  function loadTrack(i, {resume=true, autoplay=true} = {}){
+    idx = ( (i % tracks.length) + tracks.length ) % tracks.length; // 环绕
+    const tr = tracks[idx];
+    a.src = tr.src;
+    setTitle(tr.title);
+    sel.value = String(idx);
+
+    const saved = parseFloat(localStorage.getItem(K(`time.${idx}`)) || '0');
+    const setTime = ()=> {
+      if(!isNaN(saved) && saved>0 && isFinite(a.duration) && saved < a.duration){
+        a.currentTime = resume ? saved : 0;
+      }
+      syncTime();
+    };
+    if (a.readyState >= 1) setTime(); else a.addEventListener('loadedmetadata', setTime, {once:true});
+
+    if (autoplay){
+      a.play().then(()=>{
+        a.muted = false; syncButtons();
+        // 0.8s 淡入，仅内部控制，不提供 UI
+        const target = 1.0; // 固定为满音量
+        const v0 = 0;
+        a.volume = v0;
+        const t0 = performance.now(), dur = 800;
+        (function fadeIn(now){
+          const p = Math.min(1, (now - t0) / dur);
+          a.volume = v0 + (target - v0) * p;
+          if (p < 1) requestAnimationFrame(fadeIn);
+        })(t0);
+      }).catch(()=>{
+        // 若被浏览器策略阻止自动播放，保持静音，等待用户点击 ▶️
+        a.muted = true; syncButtons();
+      });
+    } else { syncButtons(); }
+
+    localStorage.setItem(KIDX, String(idx));
+  }
+
+  // 首次装载
+  loadTrack(idx, {resume:true, autoplay:true});
+
+  // 事件
+  bPlay.onclick = async ()=>{
+    if (a.paused) {
+      try{ await a.play(); }catch(e){}
+      a.muted=false;
+      a.volume=1; // 保持满音量
+    } else {
+      a.pause();
+    }
+    syncButtons(); saveState();
+  };
+  bMute.onclick = ()=>{ a.muted=!a.muted; syncButtons(); saveState(); };
+  bPrev.onclick = ()=> loadTrack(idx-1, {resume:true, autoplay:true});
+  bNext.onclick = ()=> loadTrack(idx+1, {resume:true, autoplay:true});
+  sel.onchange   = ()=> loadTrack(parseInt(sel.value,10)||0, {resume:true, autoplay:true});
+  seek.oninput   = ()=>{ const d=isFinite(a.duration)?a.duration:0; if(d>0) a.currentTime=(seek.value/100)*d; syncTime(); saveState(); };
+
+  a.addEventListener('ended', ()=> loadTrack(idx+1, {resume:false, autoplay:true}));
+  ['play','pause','timeupdate','volumechange','loadeddata','canplay'].forEach(ev=>{
+    a.addEventListener(ev, ()=>{ syncButtons(); syncTime(); saveState(); });
+  });
+  document.addEventListener('visibilitychange', saveState);
+  window.addEventListener('pagehide', saveState);
+})();
+</script>

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Happy Birthday Mon！</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">🎂 Mom</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Birthday</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Happy Birthday Mon！</h1>
+
+</div>
+
+
+<canvas id="bg">
+</canvas>
+<style>
+:root{
+  --bg1:#ffd1dc; --bg2:#bde0fe; --bg3:#c7f9cc;
+  --card:#fff; --text:#333; --muted:#7a6f6a; --border:#efe6df; --accent:#ff9ecb;
+  --radius:18px; --shadow:0 10px 26px rgba(0,0,0,.08);
+}
+html,body{height:100%;margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--text);}
+body{
+  background: radial-gradient(1200px 800px at 70% -200px, #fff3b0, transparent 60%), linear-gradient(120deg, var(--bg1), var(--bg2), var(--bg3));
+  background-size: 200% 200%, 200% 200%;
+  animation: bgShift 18s ease-in-out infinite alternate;
+}
+@keyframes bgShift{0%{background-position:0% 0%, 0% 100%}100%{background-position:100% 100%, 100% 0%}}
+
+#bg{position:fixed; inset:0; z-index:-2; display:block;}
+
+.main-container{max-width:1000px;margin:0 auto;padding:28px 16px 100px;}
+h1{margin:10px 0 6px; text-align:center;}
+.sub{color:var(--muted); text-align:center; margin:0 0 20px;}
+
+.card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px;}
+.gallery{display:flex; flex-wrap:wrap; justify-content:center; gap:18px;}
+.polaroid{width:clamp(180px, 28vw, 320px); background:#fff; border:1px solid var(--border); border-radius:14px; box-shadow:0 10px 28px rgba(0,0,0,.08); padding:10px 10px 14px; text-align:center; transition:transform .18s ease, box-shadow .18s ease;}
+.polaroid img{width:100%; height:auto; display:block; border-radius:10px;}
+.polaroid .caption{color:var(--muted); font-size:.95rem; margin-top:8px;}
+.polaroid:hover{transform: translateY(-4px) rotate(.5deg); box-shadow:0 16px 32px rgba(0,0,0,.10);}
+.polaroid:nth-child(odd){transform: rotate(-1.2deg);}
+.polaroid:nth-child(even){transform: rotate(1deg);}
+
+.grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); margin-top:16px;}
+.mini{background:#fff; border:1px solid var(--border); border-radius:16px; padding:14px 16px; box-shadow:0 8px 20px rgba(0,0,0,.06);}
+.mini h3{margin:0 0 6px; font-size:1.05rem;}
+.mini p{margin:0; line-height:1.8; color:var(--text);}
+.mini .note{color:var(--muted); font-size:.9rem; margin-top:6px;}
+
+.msg{line-height:1.9; font-size:1.06rem; background:linear-gradient(180deg,#fff,#fff8); border-radius:16px; padding:16px 18px; border:1px dashed var(--border);}
+.cta{display:flex; justify-content:center; margin-top:14px;}
+.btn{appearance:none; border:0; background:var(--accent); color:#6f2b37; font-weight:700; padding:10px 18px; border-radius:999px; cursor:pointer; box-shadow:0 10px 22px rgba(255,139,170,.36);}
+
+.petal{position:fixed; top:-10vh; width:10px; height:10px; pointer-events:none; background: radial-gradient(circle at 30% 30%, #ffe0ea 0 45%, transparent 46%); transform: rotate(0deg); border-radius:60% 40% 60% 40%; opacity:.9; filter:drop-shadow(0 2px 2px rgba(0,0,0,.12)); z-index:10;}
+@keyframes fall{0%{transform:translate3d(0,-10vh,0) rotate(0)}100%{transform:translate3d(var(--drift),110vh,0) rotate(360deg)}}
+@keyframes pop{from{transform:translateY(8px); opacity:0}to{transform:translateY(0); opacity:1}}
+.card, .mini, .polaroid{animation: pop .6s ease both;}
+
+:root{ --photo-w: clamp(260px, 34vw, 420px); --photo-ratio: 4/5; }
+.gallery .polaroid{ width: var(--photo-w); }
+.gallery .polaroid img{
+  width:100%;
+  height:auto;
+  aspect-ratio: var(--photo-ratio);
+  object-fit: cover;
+  display:block;
+}
+
+@media (max-width:640px){
+  .gallery .polaroid{ width:92vw; }
+}
+
+body{background:url('b.png') center/cover fixed no-repeat!important;animation:none!important;}
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap">
+<style>html,body{font-family:"Noto Serif SC","Songti SC","Source Han Serif SC","STSong","SimSun",serif;line-height:1.85;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}h1,h2,h3{font-weight:700;letter-spacing:.02em}</style>
+<style>@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap');html,body{font-family:"Noto Serif SC","Songti SC","Source Han Serif SC","STSong","SimSun",serif;line-height:1.85;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}h1,h2,h3{font-weight:700;letter-spacing:.02em}</style>
+
+</style>
+<h1 style="color:#fff!important;text-shadow:0 2px 6px rgba(0,0,0,.28)">
+妈妈，生日快乐！
+</h1>
+<div class="sub"
+style="color:#fff!important;opacity:.96;text-shadow:0 1px 4px rgba(0,0,0,.24)">
+愿您岁岁平安，笑意常在，万事顺心如意 💗
+</div>
+<div class="card" style="margin-bottom:16px;">
+<div class="gallery">
+<figure class="polaroid">
+<img src="m.jpg" alt="妈妈·照片一">
+<figcaption class="caption">
+愿您的每一天，都被温柔与光照亮☀️。
+</figcaption>
+</figure>
+<figure class="polaroid">
+<img src="m2.jpeg" alt="妈妈·照片二">
+<figcaption class="caption">
+今天也要被世界好好对待～
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="grid" style="margin-bottom:16px;">
+<div class="mini">
+<h3>
+健康加满🔥
+</h3>
+<p>
+吃得香，睡得好，岁岁无恙，心情常明朗。
+</p>
+<div class="note">
+— 每天都要开心一点点
+</div>
+</div>
+<div class="mini">
+<h3>
+梦想花开 💐
+</h3>
+<p>
+喜欢的事有回响，期待的事都如愿。
+</p>
+<div class="note">
+— 所愿皆成真
+</div>
+</div>
+<div class="mini">
+<h3>
+岁月静好 ☀️
+</h3>
+<p>
+人间烟火，柴米油盐，也是小小的快乐。
+</p>
+<div class="note">
+— 平平安安最珍贵
+</div>
+</div>
+</div>
+<div class="card">
+<div class="msg">
+<p>
+亲爱的妈妈❤️：
+</p>
+<p>
+谢谢您一直的爱与守护。新的岁月里：
+</p>
+<ul>
+<li>
+安康喜乐，平安顺遂；
+</li>
+<li>
+烦恼皆散，所愿皆得；
+</li>
+<li>
+日日有喜，岁岁安然。
+</li>
+</ul>
+<p>
+“柳外花前同祝愿，朱颜常在年龄远”
+</p>
+</div>
+<div class="cta">
+<button class="btn" id="blossomBtn">
+撒花 🌸
+</button>
+</div>
+</div>
+<script>(function(){const c=document.getElementById('bg'),ctx=c.getContext('2d');let W,H,P=[];function resize(){W=c.width=innerWidth;H=c.height=innerHeight}function make(n=120){P=[];for(let i=0;i<n;i++){P.push({x:Math.random()*W,y:Math.random()*H,r:1+Math.random()*2.2,a:0.2+Math.random()*0.45,dx:-0.3+Math.random()*0.6,dy:0.15+Math.random()*0.55})}}function step(){ctx.clearRect(0,0,W,H);for(const p of P){ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,182,193,${p.a})`;ctx.fill();p.x+=p.dx;p.y+=p.dy;if(p.y>H+10)p.y=-10;if(p.x>W+10)p.x=-10;if(p.x<-10)p.x=W+10}requestAnimationFrame(step)}addEventListener('resize',()=>{resize();make(P.length||120)});resize();make();step()})();(function(){const spawn=()=>{const p=document.createElement('div');p.className='petal';const vw=Math.max(document.documentElement.clientWidth||0,innerWidth||0);p.style.left=Math.random()*vw+'px';const size=8+Math.random()*10,dur=6+Math.random()*6;p.style.width=size+'px';p.style.height=size+'px';p.style.setProperty('--drift',Math.random()*200-100+'px');p.style.animation=`fall ${dur}s linear forwards`;document.body.appendChild(p);setTimeout(()=>p.remove(),(dur+0.5)*1000)};const burst=(n=32)=>{for(let i=0;i<n;i++)setTimeout(spawn,i*70)};document.getElementById('blossomBtn').addEventListener('click',()=>burst(40));document.addEventListener('click',e=>{if(e.target.id!=='blossomBtn')burst(18)});setTimeout(()=>burst(14),700)})();</script>
+<script>
+
+<style>
+  .mp-wrap{
+    position: fixed; right:16px;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+    z-index: 9999;
+    display:flex; flex-direction:column; align-items:flex-end; gap:8px;
+    font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  }
+  .mp-head{
+    display:flex; align-items:center; gap:8px;
+    background:#fff; border:1px solid var(--border,#e9dfd7);
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
+    color:var(--text,#433);
+    border-radius:999px; padding:8px 12px; cursor:pointer; user-select:none;
+  }
+  .mp-head .label{ font-size:.9rem; color:var(--muted,#7a6f6a); }
+  .mp-panel{
+    background:#fff; border:1px solid var(--border,#e9dfd7); box-shadow:0 6px 18px rgba(0,0,0,.12);
+    border-radius:14px; padding:10px; display:flex; flex-direction:column; gap:8px; width:360px; max-width:92vw;
+    transform-origin: bottom right; transition: transform .18s ease, opacity .18s ease;
+  }
+  .mp-wrap:not(.is-open) .mp-panel{ transform: scale(.92); opacity:0; pointer-events:none; }
+  .mp-row{ display:flex; align-items:center; gap:8px; }
+  .mp-title{
+    font-size:.92rem; color:var(--muted,#7a6f6a);
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex:1;
+  }
+  .mp-btn{
+    border:1px solid var(--border,#e9dfd7); background:#fff; color:inherit;
+    border-radius:10px; padding:6px 10px; cursor:pointer; font-size:14px;
+  }
+  .mp-range{ accent-color:#c58; height:4px; flex:1; }
+  .mp-time{ font-size:.8rem; color:var(--muted,#7a6f6a); min-width:74px; text-align:right; }
+  .mp-sel{
+    border:1px solid var(--border,#e9dfd7); border-radius:10px;
+    padding:6px 8px; background:#fff; font-size:.9rem; color:var(--text,#433);
+  }
+  @media (max-width:520px){
+    .mp-wrap{ right:12px; bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); }
+  }
+</style>
+
+<!-- 复用/创建音频元素：不展示音量，仅保留静音 -->
+<audio id="bgm" preload="auto" autoplay muted playsinline style="display:none;">
+  <source src="祝你生日快乐.mp3" type="audio/mpeg">
+</audio>
+
+<div class="mp-wrap" id="mpWrap" aria-live="polite">
+  <button class="mp-head" id="mpToggle" aria-expanded="false" aria-controls="mpPanel">
+    <span>🎵</span><span class="label">播放器</span>
+  </button>
+
+  <div class="mp-panel" id="mpPanel" role="group" aria-label="背景音乐控制">
+    <div class="mp-row">
+      <button class="mp-btn" id="mpPrev">⏮️</button>
+      <button class="mp-btn" id="mpPlay">▶️</button>
+      <button class="mp-btn" id="mpNext">⏭️</button>
+      <button class="mp-btn" id="mpMute">🔇</button>
+      <div class="mp-title" id="mpTitle">背景音乐</div>
+    </div>
+    <div class="mp-row">
+      <select id="mpSel" class="mp-sel" title="选择曲目"></select>
+      <input id="mpSeek" class="mp-range" type="range" min="0" max="100" value="0">
+      <span class="mp-time" id="mpTime">00:00 / 00:00</span>
+    </div>
+    <!-- 已删除音量行 -->
+  </div>
+</div>
+
+<script>
+(function(){
+  const wrap  = document.getElementById('mpWrap');
+  const toggle= document.getElementById('mpToggle');
+
+  // 折叠记忆
+  const K=(k)=>`bgm.${k}`;
+  const savedOpen = localStorage.getItem(K('open'));
+  const open = savedOpen===null?false:(savedOpen==='true');
+  wrap.classList.toggle('is-open', open);
+  toggle.setAttribute('aria-expanded', String(open));
+  toggle.onclick = ()=>{
+    const now = !wrap.classList.contains('is-open');
+    wrap.classList.toggle('is-open', now);
+    toggle.setAttribute('aria-expanded', String(now));
+    try{ localStorage.setItem(K('open'), String(now)); }catch(e){}
+  };
+
+  // 音频 & 控件
+  const a     = document.getElementById('bgm') || document.querySelector('audio');
+  const bPrev = document.getElementById('mpPrev');
+  const bPlay = document.getElementById('mpPlay');
+  const bNext = document.getElementById('mpNext');
+  const bMute = document.getElementById('mpMute');
+  const t     = document.getElementById('mpTitle');
+  const sel   = document.getElementById('mpSel');
+  const seek  = document.getElementById('mpSeek');
+  const time  = document.getElementById('mpTime');
+  if(!a){ console.warn('未找到 <audio id="bgm">'); return; }
+  a.loop = false;
+
+  // 曲目
+  const tracks = [
+    { src: '祝你生日快乐.mp3',     title: '祝你生日快乐.mp3' },
+    { src: '千千闋歌.mp3',           title: '千千闋歌.mp3' },
+    { src: 'Whispers_of_the Forest.mp3',   title: 'Whispers_of_the Forest.mp3' }
+  ];
+  sel.innerHTML = tracks.map((tr,i)=>`<option value="${i}">${tr.title}</option>`).join('');
+
+  const KIDX = K('index');
+  let idx = Math.min(tracks.length-1, Math.max(0, parseInt(localStorage.getItem(KIDX) || '0', 10)));
+  const savedMuted = localStorage.getItem(K('muted'));
+  if (savedMuted !== null) a.muted = (savedMuted === 'true');
+
+  const fmt = (s)=>{ s=Math.max(0, Math.floor(s)); const m=Math.floor(s/60), ss=s%60; return `${String(m).padStart(2,'0')}:${String(ss).padStart(2,'0')}`; };
+  function syncButtons(){ bPlay.textContent = a.paused ? '▶️' : '⏸️'; bMute.textContent = a.muted ? '🔇' : '🔊'; }
+  function syncTime(){ const cur=a.currentTime||0, dur=isFinite(a.duration)?a.duration:0;
+    time.textContent = `${fmt(cur)} / ${fmt(dur)}`; if(dur>0) seek.value = Math.round(cur/dur*100); }
+  function saveState(){
+    try{
+      localStorage.setItem(K('muted'), String(!!a.muted));
+      localStorage.setItem(KIDX, String(idx));
+      localStorage.setItem(K(`time.${idx}`), String(a.currentTime||0));
+    }catch(e){}
+  }
+  function setTitle(name){
+    try{
+      t.textContent = name || decodeURIComponent(new URL(a.currentSrc||a.src, location.href).pathname.split('/').pop());
+    }catch(e){ t.textContent = name || '背景音乐'; }
+  }
+  function loadTrack(i, {resume=true, autoplay=true} = {}){
+    idx = ( (i % tracks.length) + tracks.length ) % tracks.length; // 环绕
+    const tr = tracks[idx];
+    a.src = tr.src;
+    setTitle(tr.title);
+    sel.value = String(idx);
+
+    const saved = parseFloat(localStorage.getItem(K(`time.${idx}`)) || '0');
+    const setTime = ()=> {
+      if(!isNaN(saved) && saved>0 && isFinite(a.duration) && saved < a.duration){
+        a.currentTime = resume ? saved : 0;
+      }
+      syncTime();
+    };
+    if (a.readyState >= 1) setTime(); else a.addEventListener('loadedmetadata', setTime, {once:true});
+
+    if (autoplay){
+      a.play().then(()=>{
+        a.muted = false; syncButtons();
+        // 0.8s 淡入，仅内部控制，不提供 UI
+        const target = 1.0; // 固定为满音量
+        const v0 = 0;
+        a.volume = v0;
+        const t0 = performance.now(), dur = 800;
+        (function fadeIn(now){
+          const p = Math.min(1, (now - t0) / dur);
+          a.volume = v0 + (target - v0) * p;
+          if (p < 1) requestAnimationFrame(fadeIn);
+        })(t0);
+      }).catch(()=>{
+        // 若被浏览器策略阻止自动播放，保持静音，等待用户点击 ▶️
+        a.muted = true; syncButtons();
+      });
+    } else { syncButtons(); }
+
+    localStorage.setItem(KIDX, String(idx));
+  }
+
+  // 首次装载
+  loadTrack(idx, {resume:true, autoplay:true});
+
+  // 事件
+  bPlay.onclick = async ()=>{
+    if (a.paused) {
+      try{ await a.play(); }catch(e){}
+      a.muted=false;
+      a.volume=1; // 保持满音量
+    } else {
+      a.pause();
+    }
+    syncButtons(); saveState();
+  };
+  bMute.onclick = ()=>{ a.muted=!a.muted; syncButtons(); saveState(); };
+  bPrev.onclick = ()=> loadTrack(idx-1, {resume:true, autoplay:true});
+  bNext.onclick = ()=> loadTrack(idx+1, {resume:true, autoplay:true});
+  sel.onchange   = ()=> loadTrack(parseInt(sel.value,10)||0, {resume:true, autoplay:true});
+  seek.oninput   = ()=>{ const d=isFinite(a.duration)?a.duration:0; if(d>0) a.currentTime=(seek.value/100)*d; syncTime(); saveState(); };
+
+  a.addEventListener('ended', ()=> loadTrack(idx+1, {resume:false, autoplay:true}));
+  ['play','pause','timeupdate','volumechange','loadeddata','canplay'].forEach(ev=>{
+    a.addEventListener(ev, ()=>{ syncButtons(); syncTime(); saveState(); });
+  });
+  document.addEventListener('visibilitychange', saveState);
+  window.addEventListener('pagehide', saveState);
+})();
+</script>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
